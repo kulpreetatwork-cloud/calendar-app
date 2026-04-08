@@ -24,7 +24,7 @@ const MONTH_IMAGES = [
   },
   {
     // March — Spring meadow
-    url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9_51e?w=1210&h=800&fit=crop&q=80',
+    url: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=1200&h=800&fit=crop&q=80',
     accent: '#4CAF50',
     accentLight: '#E8F5E9',
     accentDark: '#2E7D32',

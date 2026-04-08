@@ -1,0 +1,81 @@
+.gridWrapper {
+  padding: 0 var(--space-lg) var(--space-md);
+  background: var(--bg-card);
+}
+
+/* Day headers row */
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+.dayHeader {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-tertiary);
+  padding: var(--space-sm) 0;
+}
+
+.dayHeader:nth-child(6),
+.dayHeader:nth-child(7) {
+  color: var(--accent);
+}
+
+/* Date grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+/* Flip animation wrapper */
+.flipContainer {
+  perspective: 1200px;
+}
+
+.flipContent {
+  transition: none;
+}
+
+.flipNext {
+  animation: flipInNext var(--transition-flip) ease forwards;
+}
+
+.flipPrev {
+  animation: flipInPrev var(--transition-flip) ease forwards;
+}
+
+/* Row separator lines */
+.rowSeparator {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+@media (max-width: 768px) {
+  .gridWrapper {
+    padding: 0 var(--space-md) var(--space-sm);
+  }
+
+  .dayHeader {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gridWrapper {
+    padding: 0 var(--space-sm) var(--space-sm);
+  }
+
+  .dayHeader {
+    font-size: 0.6rem;
+    padding: 4px 0;
+  }
+}

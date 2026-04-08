@@ -1,0 +1,174 @@
+/* ============================================
+   CALENDAR — Main Orchestrator Styles
+   ============================================ */
+
+.calendarWrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Physical calendar container */
+.calendar {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.calendar:hover {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+}
+
+/* Spiral binding holes decoration at the top */
+.spiralBinding {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0 0;
+  background: var(--bg-secondary);
+  z-index: 5;
+}
+
+.spiralHole {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: 2.5px solid var(--border-color);
+  position: relative;
+}
+
+.spiralHole::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 1px;
+}
+
+/* Hanging hook */
+.hangingHook {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 20px;
+  border: 2.5px solid var(--border-color);
+  border-bottom: none;
+  border-radius: 15px 15px 0 0;
+  z-index: 6;
+}
+
+/* Bottom section: grid + notes */
+.bodySection {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.footerText {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.footerHint {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--bg-tertiary);
+  font-size: 0.6rem;
+  font-family: var(--font-body);
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .calendarWrapper {
+    max-width: 680px;
+  }
+
+  .bodySection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendarWrapper {
+    max-width: 100%;
+  }
+
+  .spiralBinding {
+    gap: 16px;
+    padding: 8px 0 0;
+  }
+
+  .spiralHole {
+    width: 11px;
+    height: 11px;
+    border-width: 2px;
+  }
+
+  .spiralHole::after {
+    top: -6px;
+    height: 6px;
+  }
+
+  .hangingHook {
+    width: 24px;
+    height: 16px;
+    top: -12px;
+    border-width: 2px;
+  }
+
+  .footer {
+    padding: var(--space-xs) var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .spiralBinding {
+    gap: 12px;
+  }
+
+  .spiralHole {
+    width: 9px;
+    height: 9px;
+  }
+
+  .footerHint {
+    display: none;
+  }
+}

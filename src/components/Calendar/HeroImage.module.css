@@ -1,0 +1,113 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero:hover .heroImage {
+  transform: scale(1.03);
+}
+
+/* Diagonal wave overlay - matches reference image */
+.waveOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+}
+
+.waveSvg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Month/Year text overlay */
+.monthOverlay {
+  position: absolute;
+  bottom: 28px;
+  right: 36px;
+  text-align: right;
+  z-index: 2;
+  animation: fadeInUp 0.6s var(--transition-base);
+}
+
+.yearText {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2px;
+}
+
+.monthText {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 50%,
+    var(--bg-tertiary) 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 240px;
+  }
+
+  .monthOverlay {
+    bottom: 18px;
+    right: 20px;
+  }
+
+  .yearText {
+    font-size: 1rem;
+  }
+
+  .monthText {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 200px;
+  }
+
+  .monthText {
+    font-size: 1.5rem;
+  }
+
+  .yearText {
+    font-size: 0.875rem;
+  }
+}
